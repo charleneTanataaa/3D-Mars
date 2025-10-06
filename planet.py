@@ -25,7 +25,7 @@ def init_lighting():
 
 def circle(radius = 1, stacks = 50, slices = 50):
     top_color = (0.85, 0.1, 0.1)   # light blue (RGB)
-    bottom_color = (0.55, 0.35, 0.25)   # Deep Blue
+    bottom_color = (0.55, 0.45, 0.35)   # Deep Blue
 
     for i in range(stacks):
         lat0 = math.pi * (-0.5 + float(i) / stacks)
@@ -74,10 +74,14 @@ def main():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
-        glRotatef(1, 1, 1, 1)
+
+        # glScalef(1.2, 0.9, 1.0) 
         glClear(GL_COLOR_BUFFER_BIT| GL_DEPTH_BUFFER_BIT)
+        glRotatef(1, 1, 1, 1)
+        
+        glScalef(1, 1, 1)
         circle(1.5, 50, 50)
         pygame.display.flip()
-        pygame.time.wait(10)
+        pygame.time.wait(20)
 
 main()
